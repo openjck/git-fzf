@@ -23,8 +23,8 @@ git-fzf provides interactive versions of built-in Git commands using
     git idiff
   </dt>
   <dd>
-    Interactively choose which files to diff. Provide the `--cached` flag to
-    choose from cached files.
+    Interactively choose which files to diff. Provide the <code>--cached</code>
+    flag to choose from cached files.
   </dd>
 
   <dt>
@@ -32,7 +32,7 @@ git-fzf provides interactive versions of built-in Git commands using
   </dt>
   <dd>
     Interactively choose which files to diff with the difftool. Provide the
-    `--cached` flag to choose from cached files.
+    <code>--cached</code> flag to choose from cached files.
   </dd>
 
   <dt>
@@ -46,7 +46,7 @@ git-fzf provides interactive versions of built-in Git commands using
     git iswitch
   </dt>
   <dd>
-    Interactively choose a branch to switch to. Provide the `--remotes` flag to
-    choose from remote branches.
+    Interactively choose a branch to switch to. Provide the
+    <code>--remotes</code> flag to choose from remote branches.
   </dd>
 </dl>
