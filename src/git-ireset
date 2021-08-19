@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+# If "git rev-parse" fails, then we are not in a Git repository. When "git
+# rev-parse" fails, Git will print a generic error message about not being in a
+# Git repository. We want that generic error message, not an error message
+# specific to the command that provides input to fzf, because the user does not
+# care what command is providing input to fzf.
+#
+# Some Git commands (like "git add") fail if they are run inside the .git
+# directory itself. Users would be annoyed if that happened after they selected
+# their file(s), so the situation is handled here before anything else is done.
+# The error message that is printed is identical to the error message that Git
+# itself prints in this situation. For example, see what Git prints when "git
+# add" is run inside the .git directory itself.
+#
+# It's important to do the bare "git rev-parse" check first to determine if we
+# are in a Git repository at all. If the order were switched, "git rev-parse
+# --is-inside-git-dir" would fail with the generic error message about not being
+# in a Git repository, then "git rev-parse" would be run and would fail again
+# with the same error message.
+if ! git rev-parse; then
+  exit 1
+elif [[ $(git rev-parse --is-inside-git-dir) == "true" ]]; then
+  >&2 echo "fatal: this operation must be run in a work tree"
+  exit 2
+fi
+
+if FILES=$(git diff --name-only --cached); then
+  # This error message is based on the error message that is printed if "git
+  # log" is run in an empty repository
+  if [[ -z "$FILES" ]]; then
+    >&2 echo "fatal: you do not have any files to reset"
+    exit 4
+  fi
+
+  if SELECTED_FILES=$(fzf --multi <<< "$FILES"); then
+    xargs --no-run-if-empty git reset <<< "$SELECTED_FILES"
+  fi
+fi
