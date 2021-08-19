@@ -5,9 +5,9 @@ git-fzf provides interactive versions of built-in Git commands using
 
 ## Installation
 
-* Install [fzf](https://github.com/junegunn/fzf)
-* Download the scripts in the *src* directory and put them somewhere in your
-  `$PATH`
+1. Install [fzf](https://github.com/junegunn/fzf)
+2. Download the scripts in the *src* directory and put them somewhere in your
+   `$PATH`
 
 ## Usage
 
