@@ -16,30 +16,30 @@ git-fzf provides interactive versions of built-in Git commands using
     git iadd
   </dt>
   <dd>
-    Interactively choose which files to add
+    Interactively choose one or more files to add
   </dd>
 
   <dt>
     git idiff
   </dt>
   <dd>
-    Interactively choose which files to diff. Provide the <code>--cached</code>
-    flag to choose from cached files.
+    Interactively to choose one or more files to diff. Provide the
+    <code>--cached</code> flag to choose from cached files.
   </dd>
 
   <dt>
     git idifftool
   </dt>
   <dd>
-    Interactively choose which files to diff with the difftool. Provide the
-    <code>--cached</code> flag to choose from cached files.
+    Interactively to choose one or more filees to diff with the difftool.
+    Provide the <code>--cached</code> flag to choose from cached files.
   </dd>
 
   <dt>
     git ireset
   </dt>
   <dd>
-    Interactively choose which files to reset
+    Interactively to choose one or more files to reset
   </dd>
 
   <dt>
