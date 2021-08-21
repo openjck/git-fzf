@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+# Handle startup
+# https://stackoverflow.com/a/246128/715866
+SCRIPT_DIR="$(cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd)"
+source "$(dirname "$SCRIPT_DIR")/utils/handle-startup"
+
+if FILES=$(git diff --name-only --relative); then
+  # This error message is based on the error message that is printed if "git
+  # log" is run in an empty repository
+  if [[ -z "$FILES" ]]; then
+    >&2 echo "fatal: you do not have any files to restore"
+    exit 4
+  fi
+
+  if SELECTED_FILES=$(fzf --multi <<< "$FILES"); then
+    xargs --no-run-if-empty git restore <<< "$SELECTED_FILES"
+  fi
+fi

@@ -52,6 +52,13 @@ git-fzf provides interactive versions of built-in Git commands using
   </dd>
 
   <dt>
+    git irestore
+  </dt>
+  <dd>
+    Interactively choose one or more files to restore
+  </dd>
+
+  <dt>
     git iswitch
   </dt>
   <dd>
