@@ -32,7 +32,7 @@ git-fzf provides interactive versions of built-in Git commands using
     git idiff
   </dt>
   <dd>
-    Interactively to choose one or more files to diff. Provide the
+    Interactively choose one or more files to diff. Provide the
     <code>--staged</code> flag to choose from staged files.
   </dd>
 
@@ -40,15 +40,15 @@ git-fzf provides interactive versions of built-in Git commands using
     git idifftool
   </dt>
   <dd>
-    Interactively to choose one or more filees to diff with the difftool.
-    Provide the <code>--staged</code> flag to choose from staged files.
+    Interactively choose one or more filees to diff with the difftool. Provide
+    the <code>--staged</code> flag to choose from staged files.
   </dd>
 
   <dt>
     git ireset
   </dt>
   <dd>
-    Interactively to choose one or more files to reset
+    Interactively choose one or more files to reset
   </dd>
 
   <dt>
