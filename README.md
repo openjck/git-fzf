@@ -3,6 +3,8 @@
 git-fzf provides interactive versions of built-in Git commands using
 [fzf](https://github.com/junegunn/fzf).
 
+https://user-images.githubusercontent.com/933396/130336958-120125d8-5c1a-4013-94dd-af024284a872.mp4
+
 ## Installation
 
 1. Install [fzf](https://github.com/junegunn/fzf)
