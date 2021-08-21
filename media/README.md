@@ -1,10 +1,10 @@
-The file named *screencast-raw.mp4* is the raw output from the Kazam
+The file named _screencast-raw.mp4_ is the raw output from the Kazam
 application. It does not play in Firefox.
 
-The file named *screencast.mp4* is a version of the first file after being
-processed by ffmpeg according to [this
-advice](https://github.com/hzbd/kazam/issues/22#issuecomment-491387831). It does
-play in Firefox.
+The file named _screencast.mp4_ is a version of the first file after being
+processed by ffmpeg according to
+[this advice](https://github.com/hzbd/kazam/issues/22#issuecomment-491387831).
+It does play in Firefox.
 
 To get the URL which is needed in the top-level README to embed the video, edit
 the top-level README on GitHub, and drag and drop the fixed version of the
