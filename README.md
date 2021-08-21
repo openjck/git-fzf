@@ -29,6 +29,13 @@ git-fzf provides interactive versions of built-in Git commands using
   </dd>
 
   <dt>
+    git icommit
+  </dt>
+  <dd>
+    Interactively choose one or more staged files to commit
+  </dd>
+
+  <dt>
     git idiff
   </dt>
   <dd>
