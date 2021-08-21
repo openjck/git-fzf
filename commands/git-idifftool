@@ -9,7 +9,7 @@ if [[ "$*" == "--staged" ]]; then
   GIT_DIFF_OPTIONS="--staged"
 fi
 
-if FILES=$(git diff --name-only $GIT_DIFF_OPTIONS); then
+if FILES=$(git diff --name-only --relative $GIT_DIFF_OPTIONS); then
   # This error message is based on the error message that is printed if "git
   # log" is run in an empty repository
   if [[ -z "$FILES" ]]; then
