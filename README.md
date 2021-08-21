@@ -24,7 +24,7 @@ git-fzf provides interactive versions of built-in Git commands using
   </dt>
   <dd>
     Interactively to choose one or more files to diff. Provide the
-    <code>--cached</code> flag to choose from cached files.
+    <code>--staged</code> flag to choose from staged files.
   </dd>
 
   <dt>
@@ -32,7 +32,7 @@ git-fzf provides interactive versions of built-in Git commands using
   </dt>
   <dd>
     Interactively to choose one or more filees to diff with the difftool.
-    Provide the <code>--cached</code> flag to choose from cached files.
+    Provide the <code>--staged</code> flag to choose from staged files.
   </dd>
 
   <dt>

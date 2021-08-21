@@ -25,7 +25,7 @@ elif [[ $(git rev-parse --is-inside-git-dir) == "true" ]]; then
   exit 2
 fi
 
-if FILES=$(git diff --name-only --cached); then
+if FILES=$(git diff --name-only --staged); then
   # This error message is based on the error message that is printed if "git
   # log" is run in an empty repository
   if [[ -z "$FILES" ]]; then

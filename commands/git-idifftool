@@ -25,8 +25,8 @@ elif [[ $(git rev-parse --is-inside-git-dir) == "true" ]]; then
   exit 2
 fi
 
-if [[ "$*" == "--cached" ]]; then
-  GIT_DIFF_OPTIONS="--cached"
+if [[ "$*" == "--staged" ]]; then
+  GIT_DIFF_OPTIONS="--staged"
 fi
 
 if FILES=$(git diff --name-only $GIT_DIFF_OPTIONS); then
