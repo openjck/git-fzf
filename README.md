@@ -12,7 +12,7 @@ https://user-images.githubusercontent.com/933396/130337334-345c5c60-4e20-4807-8e
 3. Run
    `git clone https://github.com/openjck/git-fzf.git ~/.local/share/applications/git-fzf`
 4. Run
-   `echo 'export PATH="$HOME/.local/share/applications/git-fzf/commands:$PATH"' >> ~/.profile`
+   `echo 'export PATH="$PATH:$HOME/.local/share/applications/git-fzf/commands"' >> ~/.profile`
 5. Log out and log back in
 
 ## Upgrading
