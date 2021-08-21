@@ -7,3 +7,4 @@ test: lint
 
 lint:
 	npx prettier --check --prose-wrap always .
+	shellcheck commands/* utils/*

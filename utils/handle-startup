@@ -1,3 +1,4 @@
+# shellcheck shell=bash
 # vim: filetype=bash
 
 # If "git rev-parse" fails, then we are not in a Git repository. When "git
