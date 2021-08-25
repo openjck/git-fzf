@@ -34,7 +34,7 @@ https://user-images.githubusercontent.com/933396/130337334-345c5c60-4e20-4807-8e
     git icommit
   </dt>
   <dd>
-    Interactively choose one or more staged files to commit
+    Interactively choose one or more staged or unstaged files to commit
   </dd>
 
   <dt>

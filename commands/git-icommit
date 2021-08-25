@@ -5,7 +5,14 @@
 SCRIPT_DIR="$(cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd)"
 source "$(dirname "$SCRIPT_DIR")/utils/handle-startup"
 
-if FILES=$(git diff --name-only --relative --staged); then
+function get-files() {
+  (
+    git diff --name-only --relative --staged
+    git ls-files --modified --others --exclude-standard
+  ) | sort --unique
+}
+
+if FILES=$(get-files); then
   # This error message is based on the error message that is printed if "git
   # log" is run in an empty repository
   if [[ -z "$FILES" ]]; then
