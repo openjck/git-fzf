@@ -5,7 +5,10 @@
 SCRIPT_DIR="$(cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd)"
 source "$(dirname "$SCRIPT_DIR")/utils/handle-startup"
 
+REMOTES=false
+
 if [[ "$*" == "--remotes" ]]; then
+  REMOTES=true
   GIT_BRANCH_OPTIONS="--remotes"
 fi
 
@@ -18,6 +21,28 @@ if BRANCHES=$(git branch --format='%(refname:short)' $GIT_BRANCH_OPTIONS); then
   fi
 
   if SELECTED_BRANCH=$(fzf <<< "$BRANCHES"); then
-    git switch "$SELECTED_BRANCH"
+
+    # The "git branch" command lists remote branches in the following form:
+    #
+    #   <name-of-remote>/<name-of-branch>
+    #
+    # We can't pass something like that directly to the "git switch" command,
+    # but if we break things down, we can achieve what we need to achieve, which
+    # is to create and switch to a local branch with the same name which tracks
+    # the upstream branch.
+    #
+    # This behaves the same as running "git switch <name-of-branch>", assuming
+    # the "--guess" flag is enabled (it is by default), except that when the
+    # "--guess" flag is used, Git might not know what to do if there is more
+    # than one remote branch with the same name. In fact, the command that is
+    # used here is based on the "--guess" documentation.
+    if [[ $REMOTES == true ]]; then
+      REMOTE=$(sed 's/\/.*//' <<< "$SELECTED_BRANCH")
+      BRANCH=$(sed 's/.*\///' <<< "$SELECTED_BRANCH")
+      git switch --create "$BRANCH" --track "$REMOTE/$BRANCH"
+    else
+      git switch "$SELECTED_BRANCH"
+    fi
+
   fi
 fi
