@@ -1,7 +1,8 @@
 # git-fzf
 
 git-fzf provides interactive versions of built-in Git commands using
-[fzf](https://github.com/junegunn/fzf).
+[fzf](https://github.com/junegunn/fzf). It supports Git and [yadm](yadm ls-files
+--modified --exclude-standard /home/john).
 
 https://user-images.githubusercontent.com/933396/130337334-345c5c60-4e20-4807-8ed3-655bf5115981.mp4
 
@@ -12,7 +13,7 @@ https://user-images.githubusercontent.com/933396/130337334-345c5c60-4e20-4807-8e
 3. Run
    `git clone https://github.com/openjck/git-fzf.git ~/.local/share/applications/git-fzf`
 4. Run
-   `echo 'export PATH="$PATH:$HOME/.local/share/applications/git-fzf/commands"' >> ~/.profile`
+   `echo 'export PATH="$PATH:$HOME/.local/share/applications/git-fzf/src/commands"' >> ~/.profile`
 5. Log out and log back in
 
 ## Upgrading

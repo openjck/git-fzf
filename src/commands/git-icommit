@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+# Source utils
+# https://stackoverflow.com/a/246128/715866
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" &> /dev/null && pwd)"
+source "$(dirname "$SCRIPT_DIR")/utils"
+
+handle-startup
+
+CLIENT=$(get-client)
+
+function get-files() {
+  LS_FILES_OPTIONS=$(get-ls-files-options "$CLIENT")
+  REPO_ROOT=$(eval "$CLIENT rev-parse --show-toplevel")
+  (
+    eval "$CLIENT diff --name-only --relative --staged"
+    eval "$CLIENT $LS_FILES_OPTIONS $REPO_ROOT"
+  ) | sort --unique
+}
+
+if FILES=$(get-files); then
+  if [[ -z "$FILES" ]]; then
+    exit-with-applicability-error "you do not have any staged files which can be committed"
+  fi
+
+  if SELECTED_FILES=$(fzf --multi <<< "$FILES"); then
+    eval "xargs --no-run-if-empty $CLIENT commit <<< $SELECTED_FILES"
+  fi
+fi

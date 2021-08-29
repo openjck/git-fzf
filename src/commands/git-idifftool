@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+# Source utils
+# https://stackoverflow.com/a/246128/715866
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" &> /dev/null && pwd)"
+source "$(dirname "$SCRIPT_DIR")/utils"
+
+handle-startup
+
+CLIENT=$(get-client)
+
+if [[ "$*" == "--staged" ]]; then
+  DIFF_OPTIONS="--staged"
+fi
+
+if FILES=$(eval "$CLIENT diff --name-only --relative $DIFF_OPTIONS"); then
+  if [[ -z "$FILES" ]]; then
+    exit-with-applicability-error "you do not have any files to diff"
+  fi
+
+  if SELECTED_FILES=$(fzf --multi <<< "$FILES"); then
+    eval "xargs --no-run-if-empty $CLIENT difftool --no-prompt $DIFF_OPTIONS <<< $SELECTED_FILES"
+  fi
+fi

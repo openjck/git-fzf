@@ -1,0 +1,94 @@
+# shellcheck shell=bash
+# vim: filetype=bash
+
+# Return true if the calling command as triggered by yadm. Return false if it
+# was triggered by Git or any other client.
+#
+# Based on the following Stack Overflow answer:
+#
+# https://superuser.com/a/1497598/1174309
+function __triggered-by-yadm() {
+  COMMAND_NAME=$1
+  PID=$2
+
+  # We don't need to quote the PID because it will never contain whitespace
+  # characters
+  #
+  # shellcheck disable=2086
+  ps --pid $PID --no-headers --format pid,ppid,args | \
+    (
+      read -r PID PARENT_PID ARGS
+      if grep --quiet "yadm $COMMAND_NAME" <<< "$ARGS"; then
+        return 0
+      else
+        if [[ $PID == 1 ]]; then
+          return 1
+        else
+          __triggered-by-yadm "$COMMAND_NAME" $PARENT_PID
+        fi
+      fi
+    )
+}
+
+function handle-startup() {
+  # If "git rev-parse" fails, then we are not in a Git repository. When "git
+  # rev-parse" fails, Git will print a generic error message about not being in a
+  # Git repository. We want that generic error message, not an error message
+  # specific to the command that provides input to fzf, because the user does not
+  # care what command is providing input to fzf.
+  #
+  # Some Git commands (like "git add") fail if they are run inside the .git
+  # directory itself. Users would be annoyed if that happened after they selected
+  # their file(s), so the situation is handled here before anything else is done.
+  # The error message that is printed is identical to the error message that Git
+  # itself prints in this situation. For example, see what Git prints when "git
+  # add" is run inside the .git directory itself.
+  #
+  # It's important to do the bare "git rev-parse" check first to determine if we
+  # are in a Git repository at all. If the order were switched, "git rev-parse
+  # --is-inside-git-dir" would fail with the generic error message about not being
+  # in a Git repository, then "git rev-parse" would be run and would fail again
+  # with the same error message.
+  if ! git rev-parse; then
+    exit 1
+  elif [[ $(git rev-parse --is-inside-git-dir) == "true" ]]; then
+    >&2 echo "fatal: this operation must be run in a work tree"
+    exit 2
+  fi
+}
+
+function get-client() {
+  COMMAND_NAME=$(basename "$0" | sed 's/git-//')
+
+  # The PID of the Bash process that is running this script. A Bash process runs
+  # this script no matter what shell is being used because of the shebang.
+  PARENT_PID=$$
+
+  if __triggered-by-yadm "$COMMAND_NAME" $PARENT_PID; then
+    echo "yadm"
+  else
+    echo "git"
+  fi
+}
+
+# Get options for the ls-files command. If the --other option were provided to
+# yadm, "yadm ls-files" would print all files not managed by yadm, which is
+# usually most files. Most people only track a small number of files with yadm.
+function get-ls-files-options() {
+  CLIENT=$1
+
+  if [[ "$CLIENT" == yadm ]]; then
+    echo "--exclude-standard --modified"
+  else
+    echo "--exclude-standard --modified --others"
+  fi
+}
+
+# The provided error message should be based on the error message that is
+# printed if "git log" is run in an empty repository
+function exit-with-applicability-error() {
+  ERROR_MESSAGE="$1"
+
+  >&2 echo "fatal: $ERROR_MESSAGE"
+  exit 4
+}
