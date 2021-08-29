@@ -1,11 +1,20 @@
 #!/usr/bin/env bash
 
-# Handle startup
 # https://stackoverflow.com/a/246128/715866
 SCRIPT_DIR="$(cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd)"
-source "$(dirname "$SCRIPT_DIR")/utils/handle-startup"
 
-if FILES=$(git ls-files --modified --others --exclude-standard); then
+source "$(dirname "$SCRIPT_DIR")/utils/handle-startup"
+source "$(dirname "$SCRIPT_DIR")/utils/get-client"
+
+CLIENT=$(get-client)
+
+if [[ "$CLIENT" == yadm ]]; then
+  LS_FILES_OPTIONS=" --modified --exclude-standard"
+else
+  LS_FILES_OPTIONS=" --modified --others --exclude-standard"
+fi
+
+if FILES=$("$CLIENT" ls-files "$LS_FILES_OPTIONS"); then
   # This error message is based on the error message that is printed if "git
   # log" is run in an empty repository
   if [[ -z "$FILES" ]]; then
@@ -14,6 +23,6 @@ if FILES=$(git ls-files --modified --others --exclude-standard); then
   fi
 
   if SELECTED_FILES=$(fzf --multi <<< "$FILES"); then
-    xargs --no-run-if-empty git add <<< "$SELECTED_FILES"
+    xargs --no-run-if-empty "$CLIENT" add <<< "$SELECTED_FILES"
   fi
 fi
