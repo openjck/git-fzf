@@ -14,7 +14,8 @@ else
   LS_FILES_OPTIONS=" --modified --others --exclude-standard"
 fi
 
-if FILES=$("$CLIENT" ls-files "$LS_FILES_OPTIONS"); then
+REPO_ROOT=$(git rev-parse --show-toplevel)
+if FILES=$("$CLIENT" ls-files "$LS_FILES_OPTIONS" "$REPO_ROOT"); then
   # This error message is based on the error message that is printed if "git
   # log" is run in an empty repository
   if [[ -z "$FILES" ]]; then
