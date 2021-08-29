@@ -2,7 +2,7 @@
 
 # Handle startup
 # https://stackoverflow.com/a/246128/715866
-SCRIPT_DIR="$(cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd)"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" &> /dev/null && pwd)"
 source "$(dirname "$SCRIPT_DIR")/utils/handle-startup"
 
 if FILES=$(git diff --name-only --relative --staged); then
