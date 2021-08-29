@@ -13,8 +13,7 @@ fi
 
 if FILES=$(git diff --name-only --relative $GIT_DIFF_OPTIONS); then
   if [[ -z "$FILES" ]]; then
-    print-fatal-error "you do not have any files to diff"
-    exit 4
+    handle-fatal-error "you do not have any files to diff"
   fi
 
   if SELECTED_FILES=$(fzf --multi <<< "$FILES"); then

@@ -9,8 +9,7 @@ handle-startup
 
 if FILES=$(git diff --name-only --relative); then
   if [[ -z "$FILES" ]]; then
-    print-fatal-error "you do not have any files to restore"
-    exit 4
+    handle-fatal-error "you do not have any files to restore"
   fi
 
   if SELECTED_FILES=$(fzf --multi <<< "$FILES"); then

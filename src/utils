@@ -30,7 +30,9 @@ function handle-startup() {
 
 # The provided error message should be based on the error message that is
 # printed if "git log" is run in an empty repository
-function fatal-error() {
+function handle-fatal-error() {
   ERROR_MESSAGE="$1"
+
   >&2 echo "fatal: $ERROR_MESSAGE"
+  exit 4
 }

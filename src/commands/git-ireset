@@ -9,8 +9,7 @@ handle-startup
 
 if FILES=$(git diff --name-only --relative --staged); then
   if [[ -z "$FILES" ]]; then
-    print-fatal-error "you do not have any files to reset"
-    exit 4
+    handle-fatal-error "you do not have any files to reset"
   fi
 
   if SELECTED_FILES=$(fzf --multi <<< "$FILES"); then

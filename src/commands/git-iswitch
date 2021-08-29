@@ -16,8 +16,7 @@ fi
 
 if BRANCHES=$(git branch --format='%(refname:short)' $GIT_BRANCH_OPTIONS); then
   if [[ -z "$BRANCHES" ]]; then
-    print-fatal-error "your repository does not have any branches with commits yet"
-    exit 4
+    handle-fatal-error "your repository does not have any branches with commits yet"
   fi
 
   if SELECTED_BRANCH=$(fzf <<< "$BRANCHES"); then

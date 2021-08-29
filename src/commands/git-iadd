@@ -10,8 +10,7 @@ handle-startup
 REPO_ROOT=$(git rev-parse --show-toplevel)
 if FILES=$(git ls-files --modified --others --exclude-standard "$REPO_ROOT"); then
   if [[ -z "$FILES" ]]; then
-    print-fatal-error "you do not have any files to add"
-    exit 4
+    handle-fatal-error "you do not have any files to add"
   fi
 
   if SELECTED_FILES=$(fzf --multi <<< "$FILES"); then

@@ -17,8 +17,7 @@ function get-files() {
 
 if FILES=$(get-files); then
   if [[ -z "$FILES" ]]; then
-    print-fatal-error "you do not have any staged files which can be committed"
-    exit 4
+    handle-fatal-error "you do not have any staged files which can be committed"
   fi
 
   if SELECTED_FILES=$(fzf --multi <<< "$FILES"); then
