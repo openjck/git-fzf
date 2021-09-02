@@ -37,7 +37,7 @@ if BRANCHES=$(git branch --format='%(refname:short)' $GIT_BRANCH_OPTIONS); then
     # used here is based on the "--guess" documentation.
     if [[ $REMOTES == true ]]; then
       REMOTE=$(sed 's/\/.*//' <<< "$SELECTED_BRANCH")
-      BRANCH=$(sed 's/.*\///' <<< "$SELECTED_BRANCH")
+      BRANCH=$(sed 's/[^\/]*\///' <<< "$SELECTED_BRANCH")
       git switch --create "$BRANCH" --track "$REMOTE/$BRANCH"
     else
       git switch "$SELECTED_BRANCH"
