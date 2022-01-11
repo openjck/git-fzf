@@ -1,0 +1,3 @@
+# Ignore generated files.
+dist/
+__pycache__/

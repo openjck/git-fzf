@@ -1,0 +1,38 @@
+[tool.poetry]
+name = "git-fzf"
+version = "0.0.1"
+description = "Interactive versions of built-in Git commands using fzf"
+
+authors = ["John Karahalis <john.karahalis@gmail.com>"]
+documentation = "https://github.com/openjck/git-fzf#usage"
+homepage = "https://github.com/openjck/git-fzf"
+keywords = ["git", "fzf", "cli"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/openjck/git-fzf"
+
+[tool.poetry.scripts]
+git-iadd = "git_fzf.commands.add:run"
+git-icommit = "git_fzf.commands.commit:run"
+git-idiff = "git_fzf.commands.diff:run"
+git-idifftool = "git_fzf.commands.difftool:run"
+git-ireset = "git_fzf.commands.reset:run"
+git-irestore = "git_fzf.commands.restore:run"
+git-iswitch = "git_fzf.commands.switch:run"
+
+[tool.black]
+line-length = 79
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pyfzf = "0.2.2"
+
+[tool.poetry.dev-dependencies]
+black = "^22.10.0"
+flake8 = "^5.0.4"
+isort = "^5.10.1"
+pyclean = "^2.2.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
