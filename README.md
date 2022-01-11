@@ -75,3 +75,24 @@ https://user-images.githubusercontent.com/933396/130337334-345c5c60-4e20-4807-8e
     <code>--remotes</code> flag to choose from remote branches.
   </dd>
 </dl>
+
+## Similar projects
+
+<dl>
+  <dt>
+    <a href="https://github.com/wfxr/forgit">forgit</a>
+  </dt>
+  <dd>
+    <p>
+      An interactive wrapper for Git with a more elaborate user interface. Most
+      of the time, I personally prefer the more minimal user interface that this
+      project provides.
+    </p>
+    <p>
+      Would I have started this project if I had known about forgit at the time?
+    </p>
+    <p>
+      🤷‍♂️
+    </p>
+  </dd>
+</dl>
