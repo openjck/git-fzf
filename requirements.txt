@@ -1,0 +1,6 @@
+pyfzf==0.2.2
+
+# Code quality
+black
+flake8
+isort

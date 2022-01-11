@@ -42,15 +42,17 @@ https://user-images.githubusercontent.com/933396/130337334-345c5c60-4e20-4807-8e
   </dt>
   <dd>
     Interactively choose one or more files to diff. Provide the
-    <code>--staged</code> flag to choose from staged files.
+    <code>--staged</code> or <code>--cached</code> flag to choose from staged
+    files.
   </dd>
 
   <dt>
     git idifftool
   </dt>
   <dd>
-    Interactively choose one or more filees to diff with the difftool. Provide
-    the <code>--staged</code> flag to choose from staged files.
+    Interactively choose one or more files to diff with the difftool. Provide
+    the <code>--staged</code> or <code>--cached</code> flag to choose from
+    staged files.
   </dd>
 
   <dt>
@@ -71,7 +73,7 @@ https://user-images.githubusercontent.com/933396/130337334-345c5c60-4e20-4807-8e
     git iswitch
   </dt>
   <dd>
-    Interactively choose a branch to switch to. Provide the
+    Interactively choose a branch to switch to. Provide the <code>-r</code> or
     <code>--remotes</code> flag to choose from remote branches.
   </dd>
 </dl>
