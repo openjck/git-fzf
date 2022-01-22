@@ -1,0 +1,6 @@
+#!/usr/bin/env python3
+
+from git_fzf.templates.InteractiveCommitCommand import InteractiveCommitCommand
+
+cmd = InteractiveCommitCommand()
+cmd.execute()

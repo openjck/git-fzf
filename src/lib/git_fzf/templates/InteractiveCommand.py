@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
-from .utils import fzf
-from .utils.runtime import handle_fatal_error, handle_startup
+from git_fzf.utils import fzf
+from git_fzf.utils.runtime import handle_fatal_error, handle_startup
 
 
 class InteractiveCommand(ABC):

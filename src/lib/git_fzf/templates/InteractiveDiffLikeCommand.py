@@ -1,8 +1,9 @@
 import argparse
 from abc import abstractmethod
 
+from git_fzf.utils.shell import run
+
 from .InteractiveCommand import InteractiveCommand
-from .utils.shell import run
 
 
 class InteractiveDiffLikeCommand(InteractiveCommand):

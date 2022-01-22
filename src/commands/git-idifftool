@@ -1,6 +1,0 @@
-#!/usr/bin/env python3
-
-from lib.InteractiveDifftoolCommand import InteractiveDifftoolCommand
-
-cmd = InteractiveDifftoolCommand()
-cmd.execute()

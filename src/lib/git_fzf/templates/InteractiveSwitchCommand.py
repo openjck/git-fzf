@@ -1,7 +1,8 @@
 import argparse
 
+from git_fzf.utils.shell import run
+
 from .InteractiveCommand import InteractiveCommand
-from .utils.shell import run
 
 
 class InteractiveSwitchCommand(InteractiveCommand):

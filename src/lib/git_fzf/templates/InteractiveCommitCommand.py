@@ -1,6 +1,7 @@
+from git_fzf.utils.git import get_repo_root
+from git_fzf.utils.shell import run
+
 from .InteractiveCommand import InteractiveCommand
-from .utils.git import get_repo_root
-from .utils.shell import run
 
 
 class InteractiveCommitCommand(InteractiveCommand):

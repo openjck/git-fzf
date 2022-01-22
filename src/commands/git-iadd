@@ -1,6 +1,0 @@
-#!/usr/bin/env python3
-
-from lib.InteractiveAddCommand import InteractiveAddCommand
-
-cmd = InteractiveAddCommand()
-cmd.execute()

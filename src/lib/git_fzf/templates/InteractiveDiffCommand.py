@@ -1,5 +1,6 @@
+from git_fzf.utils.shell import run
+
 from .InteractiveDiffLikeCommand import InteractiveDiffLikeCommand
-from .utils.shell import run
 
 
 class InteractiveDiffCommand(InteractiveDiffLikeCommand):

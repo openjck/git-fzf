@@ -1,0 +1,6 @@
+#!/usr/bin/env python3
+
+from git_fzf.templates.InteractiveResetCommand import InteractiveResetCommand
+
+cmd = InteractiveResetCommand()
+cmd.execute()

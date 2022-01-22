@@ -1,6 +1,0 @@
-#!/usr/bin/env python3
-
-from lib.InteractiveCommitCommand import InteractiveCommitCommand
-
-cmd = InteractiveCommitCommand()
-cmd.execute()

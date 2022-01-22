@@ -1,0 +1,8 @@
+#!/usr/bin/env python3
+
+from git_fzf.templates.InteractiveRestoreCommand import (
+    InteractiveRestoreCommand,
+)
+
+cmd = InteractiveRestoreCommand()
+cmd.execute()

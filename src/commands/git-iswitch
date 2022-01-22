@@ -1,6 +1,0 @@
-#!/usr/bin/env python3
-
-from lib.InteractiveSwitchCommand import InteractiveSwitchCommand
-
-cmd = InteractiveSwitchCommand()
-cmd.execute()

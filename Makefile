@@ -1,6 +1,6 @@
 .PHONY: format test lint
 
-python = src/commands/git-* src/commands/lib/*.py src/commands/lib/utils/*.py
+python = src/commands/* src/lib/**/*
 
 format:
 	npx prettier --write --prose-wrap always .

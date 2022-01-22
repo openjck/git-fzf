@@ -1,0 +1,6 @@
+#!/usr/bin/env python3
+
+from git_fzf.templates.InteractiveSwitchCommand import InteractiveSwitchCommand
+
+cmd = InteractiveSwitchCommand()
+cmd.execute()

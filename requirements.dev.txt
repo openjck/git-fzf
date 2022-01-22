@@ -1,0 +1,4 @@
+# Code quality
+black
+flake8
+isort

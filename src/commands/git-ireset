@@ -1,6 +1,0 @@
-#!/usr/bin/env python3
-
-from lib.InteractiveResetCommand import InteractiveResetCommand
-
-cmd = InteractiveResetCommand()
-cmd.execute()

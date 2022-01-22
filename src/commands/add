@@ -1,0 +1,6 @@
+#!/usr/bin/env python3
+
+from git_fzf.templates.InteractiveAddCommand import InteractiveAddCommand
+
+cmd = InteractiveAddCommand()
+cmd.execute()
