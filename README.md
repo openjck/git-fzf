@@ -78,21 +78,13 @@ https://user-images.githubusercontent.com/933396/130337334-345c5c60-4e20-4807-8e
 
 ## Similar projects
 
-<dl>
-  <dt>
-    <a href="https://github.com/wfxr/forgit">forgit</a>
-  </dt>
-  <dd>
-    <p>
-      An interactive wrapper for Git with a more elaborate user interface. Most
-      of the time, I personally prefer the more minimal user interface that this
-      project provides.
-    </p>
-    <p>
-      Would I have started this project if I had known about forgit at the time?
-    </p>
-    <p>
-      🤷‍♂️
-    </p>
-  </dd>
-</dl>
+There are some similar projects with more elaborate user interfaces:
+
+* [forgit](https://github.com/bigH/git-fuzzy)
+* [git-fuzzy](https://github.com/bigH/git-fuzzy)
+
+Most of the time, I personally prefer the more minimal user interface that this
+project provides. Still, would I have started this project if I had known about
+these alternatives at the time?
+
+🤷‍♂️
