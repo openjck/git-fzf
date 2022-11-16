@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "git-fzf"
-version = "0.0.1"
+version = "0.0.2"
 description = "Interactive versions of built-in Git commands using fzf"
 
 authors = ["John Karahalis <john.karahalis@gmail.com>"]
