@@ -24,7 +24,7 @@ git-iswitch = "git_fzf.commands.switch:run"
 line-length = 79
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.8.10"
 pyfzf = "0.2.2"
 
 [tool.poetry.dev-dependencies]
