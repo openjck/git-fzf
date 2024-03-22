@@ -1,5 +1,4 @@
 import argparse
-
 from abc import abstractmethod
 
 from git_fzf.lib.utils.shell import run

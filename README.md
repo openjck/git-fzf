@@ -71,8 +71,8 @@ Run `pip install git-fzf`
 
 There are some similar projects with more elaborate user interfaces:
 
-* [forgit](https://github.com/bigH/git-fuzzy)
-* [git-fuzzy](https://github.com/bigH/git-fuzzy)
+- [forgit](https://github.com/bigH/git-fuzzy)
+- [git-fuzzy](https://github.com/bigH/git-fuzzy)
 
 Most of the time, I personally prefer the more minimal user interface that this
 project provides. Still, would I have started this project if I had known about
