@@ -28,7 +28,7 @@ python = "^3.8.10"
 pyfzf = "0.2.2"
 
 [tool.poetry.dev-dependencies]
-black = "^22.10.0"
+black = "^24.3.0"
 flake8 = "^5.0.4"
 isort = "^5.10.1"
 pyclean = "^2.2.0"
