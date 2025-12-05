@@ -7,7 +7,7 @@ https://user-images.githubusercontent.com/933396/130337334-345c5c60-4e20-4807-8e
 
 ## Installation
 
-Run `pip install git-fzf`
+Run `pipx install git-fzf`
 
 ## Usage
 
