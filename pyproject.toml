@@ -1,17 +1,33 @@
-[tool.poetry]
+[project]
 name = "git-fzf"
 version = "0.0.2"
 description = "Interactive versions of built-in Git commands using fzf"
-
-authors = ["John Karahalis <john.karahalis@gmail.com>"]
-documentation = "https://github.com/openjck/git-fzf#usage"
-homepage = "https://github.com/openjck/git-fzf"
-keywords = ["git", "fzf", "cli"]
-license = "MIT"
+authors = [{ name = "John Karahalis", email = "john@johnkarahalis.com" }]
+requires-python = ">=3.8.10,<4"
 readme = "README.md"
-repository = "https://github.com/openjck/git-fzf"
+license = "MIT"
+keywords = [
+    "git",
+    "fzf",
+    "cli",
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+]
+dependencies = ["pyfzf==0.2.2"]
 
-[tool.poetry.scripts]
+[project.urls]
+Homepage = "https://github.com/openjck/git-fzf"
+Repository = "https://github.com/openjck/git-fzf"
+Documentation = "https://github.com/openjck/git-fzf#usage"
+
+[project.scripts]
 git-iadd = "git_fzf.commands.add:run"
 git-icommit = "git_fzf.commands.commit:run"
 git-idiff = "git_fzf.commands.diff:run"
@@ -20,19 +36,17 @@ git-ireset = "git_fzf.commands.reset:run"
 git-irestore = "git_fzf.commands.restore:run"
 git-iswitch = "git_fzf.commands.switch:run"
 
-[tool.black]
-line-length = 79
-
-[tool.poetry.dependencies]
-python = "^3.8.10"
-pyfzf = "0.2.2"
-
-[tool.poetry.dev-dependencies]
-black = "^24.3.0"
-flake8 = "^5.0.4"
-isort = "^5.10.1"
-pyclean = "^2.2.0"
+[dependency-groups]
+dev = [
+    "black>=24.3.0,<25",
+    "flake8>=5.0.4,<6",
+    "isort>=5.10.1,<6",
+    "pyclean>=2.2.0,<3",
+]
 
 [build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+requires = ["uv_build>=0.10.9,<0.11.0"]
+build-backend = "uv_build"
+
+[tool.black]
+line-length = 79
