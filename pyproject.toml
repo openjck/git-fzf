@@ -40,7 +40,7 @@ git-iswitch = "git_fzf.commands.switch:run"
 dev = [
     "black>=24.8.0",
     "flake8>=5.0.4,<6",
-    "isort>=5.10.1,<6",
+    "isort>=5.13.2",
     "pyclean>=2.2.0,<3",
 ]
 
@@ -50,3 +50,8 @@ build-backend = "uv_build"
 
 [tool.black]
 line-length = 79
+
+# Make isort and black agree on formatting of imports, so that they don't undo
+# each other's work.
+[tool.isort]
+profile = "black"

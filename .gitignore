@@ -1,3 +1,4 @@
 # Ignore generated files.
 dist/
 __pycache__/
+.venv/
