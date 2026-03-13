@@ -38,7 +38,7 @@ git-iswitch = "git_fzf.commands.switch:run"
 
 [dependency-groups]
 dev = [
-    "black>=24.3.0,<25",
+    "black>=24.8.0",
     "flake8>=5.0.4,<6",
     "isort>=5.10.1,<6",
     "pyclean>=2.2.0,<3",
