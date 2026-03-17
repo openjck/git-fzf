@@ -3,7 +3,7 @@ name = "git-fzf"
 version = "0.0.2"
 description = "Interactive versions of built-in Git commands using fzf"
 authors = [{ name = "John Karahalis", email = "john@johnkarahalis.com" }]
-requires-python = ">=3.8.10,<4"
+requires-python = ">=3.10,<4"
 readme = "README.md"
 license = "MIT"
 keywords = [
@@ -38,7 +38,7 @@ git-iswitch = "git_fzf.commands.switch:run"
 
 [dependency-groups]
 dev = [
-    "black>=24.8.0",
+    "black>=26.3.1",
     "flake8>=5.0.4,<6",
     "isort>=5.13.2",
     "pyclean>=2.2.0,<3",
